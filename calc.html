@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="calc_result">
+        <output class="calc__result" id="result"></output>
+      </div>
+      <div class="calc">
+        <button class="calc__btn" type="button">7</button>
+        <button class="calc__btn" type="button">8</button>
+        <button class="calc__btn" type="button">9</button>
+        <button class="calc__btn" type="button">+</button>
+
+        <button class="calc__btn" type="button">4</button>
+        <button class="calc__btn" type="button">5</button>
+        <button class="calc__btn" type="button">6</button>
+        <button class="calc__btn" type="button">-</button>
+
+        <button class="calc__btn" type="button">1</button>
+        <button class="calc__btn" type="button">2</button>
+        <button class="calc__btn" type="button">3</button>
+        <button class="calc__btn" type="button">*</button>
+
+        <button class="calc__btn" type="button">0</button>
+        <button class="calc__btn" type="button">.</button>
+        <button class="calc__btn" type="button">00</button>
+        <button class="calc__btn" type="button">/</button>
+
+        <button class="calc__btn calc__btn_reset" type="button">C</button>
+        <button class="calc__btn calc__btn_result" type="button">=</button>
+      </div>
+    </div>
+    <script>
+      const calc = document.querySelector(".calc");
+      const result = document.querySelector("#result");
+
+      calc.addEventListener("click", function (event) {
+        let value = event.target.innerText;
+        switch (value) {
+          case "C":
+            result.innerText = "";
+            break;
+          case "=":
+            result.innerText = eval(result.innerText).toFixed(2);
+            break;
+          default:
+            result.innerText += value;
+        }
+      });
+    </script>
+  </body>
+</html>
